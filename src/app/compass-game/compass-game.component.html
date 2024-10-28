@@ -1,0 +1,31 @@
+<div class="compass-game-container">
+  <h1>Compass Game</h1>
+  <div *ngIf="!gameOver">
+    <p>{{ questions[currentQuestionIndex].text }}</p>
+    <div class="question-buttons">
+      <button (click)="answerQuestion(1)">Strongly Agree</button>
+      <button (click)="answerQuestion(0.5)">Agree</button>
+      <button (click)="answerQuestion(0)">Neutral</button>
+      <button (click)="answerQuestion(-0.5)">Disagree</button>
+      <button (click)="answerQuestion(-1)">Strongly Disagree</button>
+    </div>
+  </div>
+  <div *ngIf="gameOver">
+    <h3>Your Compass Position</h3>
+    <div class="compass-wrapper">
+      <div class="compass">
+        <div class="marker" [ngStyle]="{ left: xPosition + '%', top: yPosition + '%' }"></div>
+        <span class="label top">Individualist</span>
+        <span class="label bottom">Collectivist</span>
+        <span class="label left">Empathy</span>
+        <span class="label right">Apathy</span>
+      </div>
+    </div>
+    <div class="result-container">
+    <p>Empathy: {{ empathyScore.toFixed(2) }}</p>
+    <p>Collectivism: {{ collectivistScore.toFixed(2) }}</p>
+    <p>Apathy: {{ (empathyScore*-1).toFixed(2)}}</p>
+    <p>Individualism: {{ (collectivistScore*-1).toFixed(2)}}</p>
+    </div>
+  </div>
+</div>

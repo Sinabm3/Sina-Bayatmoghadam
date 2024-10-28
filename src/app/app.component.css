@@ -1,85 +1,29 @@
-.cv-container {
-  width: 80%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.navbar {
+  background-color: #111515;
+  padding: 1rem;
+  text-align: center;
 }
 
-.cv-header {
-  margin-bottom: 20px;
-}
-
-.info-photo-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Keeps contact info and image aligned properly */
-}
-
-.contact-info {
-  flex: 1; /* Makes the contact info take more space */
-}
-
-.profile-photo {
-  width: 165px; /* Fixed width */
-  height: 165px; /* Fixed height */
-  border-radius: 50%; /* Circular shape */
-  object-fit: cover; /* Ensures the image fits without distortion */
-}
-
-.cv-section {
-  margin-bottom: 30px;
-}
-
-.cv-section h2 {
-  font-size: 24px;
-  border-bottom: 2px solid #333;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-.experience-item,
-.education-item,
-.project-item {
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-ul {
+.nav-links {
   list-style-type: none;
-  padding-left: 0;
+  margin: 0;
+  padding: 0;
 }
 
-ul li {
-  margin-bottom: 8px;
+.nav-links li {
+  display: inline;
+  margin-right: 20px;
 }
 
-.cv-section ul li {
-  font-size: 16px;
-  color: #444;
+.nav-links li a {
+  color: #f10606;
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
-@media (max-width: 768px) {
-  .info-photo-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .photo-container {
-    margin-left: 0;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: left;
-  }
-  .profile-photo {
-    max-width: 120px;
-    max-height: 120px;
-  }
+.nav-links li a:hover {
+  text-decoration: underline;
 }
+
+
+
