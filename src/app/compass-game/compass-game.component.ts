@@ -21,7 +21,7 @@ export class CompassGameComponent {
 
   questions: Question[] = [
     { text: 'If someone cannot afford food or shelter, they should still have access to it.', empathyAxis: 1, collectivistAxis: 0},
-    { text: 'If my child disagrees with my core moral values, I will continuously try to change their mind.', empathyAxis: 0, collectivistAxis: 1 },
+    { text: 'If my child disagrees with my most important moral values, I will continuously try to change their mind.', empathyAxis: 0, collectivistAxis: 1 },
     { text: 'Charity is more effective in improving healthcare than nationalizing the healthcare system.', empathyAxis: 0, collectivistAxis: -1 },
     { text: 'A company should always have the right to choose who they serve, even if it is based on arbitrary factors like race or religion.', empathyAxis: -1, collectivistAxis: 0 },
     { text: 'You should never negotiate with people you view as terrorists.', empathyAxis: -1, collectivistAxis: 0 },
@@ -32,7 +32,7 @@ export class CompassGameComponent {
     { text: 'The death penalty is sometimes justified.', empathyAxis: -1, collectivistAxis: 0},
     { text: 'The community\'s needs should always come before individual needs.', empathyAxis: 0, collectivistAxis: 1 },
     { text: 'It is more important to work for the betterment of society than for personal success.', empathyAxis: 0, collectivistAxis: 1 },
-    { text: 'People should pay higher taxes if it means better public services for everyone.', empathyAxis: 0, collectivistAxis: 1 },
+    { text: 'Rich people should pay higher taxes if it means better public services for everyone.', empathyAxis: 0, collectivistAxis: 1 },
     { text: 'A doctor and a farmer should get paid the same in a world, where education is free and comfortable.', empathyAxis: 0, collectivistAxis: 1 },
     { text: 'Working for another company is a better option than trying to change the company you currently work at.', empathyAxis: 0, collectivistAxis: -1 },
     { text: 'People who hate the actions of their country should just move to another country.', empathyAxis: 0, collectivistAxis: -1 },
@@ -63,7 +63,7 @@ export class CompassGameComponent {
 
   calculatePosition(): void {
     // Normalize to percentage for compass positioning (assuming -5 to 5 possible score range)
-    this.xPosition = ((10 - this.empathyScore) / 20) * 100;
-    this.yPosition = ((10 + this.collectivistScore) / 20) * 100;
+    this.xPosition = ((this.questions.length/2 - this.empathyScore) / this.questions.length) * 100;
+    this.yPosition = ((this.questions.length/2 + this.collectivistScore) / this.questions.length) * 100;
   }
 }
