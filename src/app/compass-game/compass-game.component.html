@@ -2,6 +2,10 @@
   <h1>Compass Game</h1>
   <div *ngIf="!gameOver">
     <p>{{ questions[currentQuestionIndex].text }}</p>
+    <div class="bar">
+      <p>{{currentQuestionIndex}}/{{questions.length}}</p>
+    <mat-progress-bar mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
+    </div>
     <div class="question-buttons">
       <button (click)="answerQuestion(1)">Strongly Agree</button>
       <button (click)="answerQuestion(0.5)">Agree</button>
