@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgIf, NgStyle} from '@angular/common';
 import {MatProgressBar} from '@angular/material/progress-bar';
+import {MatSlider} from '@angular/material/slider';
 interface Question {
   text: string;
   empathyAxis: number;
@@ -12,7 +13,8 @@ interface Question {
   imports: [
     NgStyle,
     NgIf,
-    MatProgressBar
+    MatProgressBar,
+    MatSlider
   ],
   templateUrl: './compass-game.component.html',
   styleUrl: './compass-game.component.css'

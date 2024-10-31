@@ -1,10 +1,10 @@
 <div class="compass-game-container">
   <h1>Compass Game</h1>
-  <div *ngIf="!gameOver">
+  <div *ngIf="!gameOver" class="bars">
     <p>{{ questions[currentQuestionIndex].text }}</p>
     <div class="bar">
       <p>{{currentQuestionIndex}}/{{questions.length}}</p>
-    <mat-progress-bar mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
+    <mat-progress-bar class="bar" mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
     </div>
     <div class="question-buttons">
       <button (click)="answerQuestion(1)">Strongly Agree</button>
@@ -19,13 +19,29 @@
     <div class="compass-wrapper">
       <div class="compass">
         <div class="marker" [ngStyle]="{ left: xPosition + '%', top: yPosition + '%' }"></div>
-        <span class="label top">Individualist</span>
-        <span class="label bottom">Collectivist</span>
+        <span class="label top">Individualism</span>
+        <span class="label bottom">Collectivism</span>
         <span class="label left">Empathy</span>
-        <span class="label right">Apathy</span>
+        <span class="label right">Meritocracy</span>
       </div>
     </div>
+
+    <div class="bars">
+      <div class="bar-container">
+        <span>Empathy</span>
+        <mat-progress-bar class="bar" mode="determinate" [value]="5*empathyScore+50"></mat-progress-bar>
+        <span>Merit</span>
+      </div>
+
+      <div class="bar-container">
+        <span>Collectivism</span>
+        <mat-progress-bar class="bar" mode="determinate" [value]="5*collectivistScore+50"></mat-progress-bar>
+        <span>Individualism</span>
+      </div>
+    </div>
+
     <div class="result-container">
+
     <p>Empathy: {{ empathyScore.toFixed(2) }}</p>
     <p>Collectivism: {{ collectivistScore.toFixed(2) }}</p>
     <p>Apathy: {{ (empathyScore*-1).toFixed(2)}}</p>
