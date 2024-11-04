@@ -99,22 +99,34 @@
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100px;
+
 }
 
 .label.bottom {
   bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100px;
+
 }
 
 .label.left {
-  left: -60px;
+  left: -90px;
   top: 50%;
   transform: translateY(-50%);
+  width: 100px;
+
 }
 
 .label.right {
-  right: -50px;
+  right: -100px;
   top: 50%;
   transform: translateY(-50%);
+  width: 100px;
+}
+
+.text-container {
+  width: 200px;
+  padding: 10px;
 }

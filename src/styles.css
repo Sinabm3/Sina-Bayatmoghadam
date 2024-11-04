@@ -5,3 +5,11 @@ html, body {
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bar .mat-progress-bar-background {
+  background-color: red; /* Hintergrundfarbe */
+}
+
+.bar .mat-progress-bar-fill::after {
+  background-color: green; /* Farbe des Fortschritts */
+}
