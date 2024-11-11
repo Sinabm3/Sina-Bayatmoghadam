@@ -26,7 +26,6 @@
 
 .bar{
   align-self: center;
-  width: 50rem;
 }
 .bars {
   display: flex;
