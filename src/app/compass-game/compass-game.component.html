@@ -5,7 +5,7 @@
     <div class="bars">
       <p>{{currentQuestionIndex}}/{{questions.length}}</p>
       <div class="bar-container">
-        <mat-progress-bar class="bar" mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
+        <mat-progress-bar mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
       </div>
     </div>
     <div class="question-buttons">
@@ -30,15 +30,15 @@
 
     <div class="bars">
       <div class="bar-container">
-        <span class="text-container"> Empathy</span>
-        <mat-progress-bar class="bar" mode="determinate" [value]="5*empathyScore+50"></mat-progress-bar>
-        <span class="text-container">Meritocracy</span>
+        <span class="text-container" style="background-color:powderblue;"> Empathy</span>
+        <mat-progress-bar mode="determinate" [value]="5*empathyScore+50"></mat-progress-bar>
+        <span class="text-container" style="background-color:darkgray ;">Meritocracy</span>
       </div>
 
       <div class="bar-container">
-        <span class="text-container">Collectivism</span>
-        <mat-progress-bar class="bar" mode="determinate" [value]="5*collectivistScore+50"></mat-progress-bar>
-        <span class="text-container">Individualism</span>
+        <span class="text-container" style="background-color:powderblue;">Collectivism</span>
+        <mat-progress-bar mode="determinate" [value]="5*collectivistScore+50"></mat-progress-bar>
+        <span class="text-container" style="background-color:darkgray ;">Individualism</span>
       </div>
     </div>
 
