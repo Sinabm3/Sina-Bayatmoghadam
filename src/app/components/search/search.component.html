@@ -1,0 +1,12 @@
+<div class="compass-cards">
+<mat-card class="compass-game-card" *ngFor="let infoCompassGame of infoCompassGames" routerLink="/compass-game/{{infoCompassGame.id}}">
+    <mat-card-header><p>{{infoCompassGame.name}}</p></mat-card-header>
+    <mat-card-content>
+    <p>{{infoCompassGame.horizontalAxisNegativeName}}-{{infoCompassGame.horizontalAxisPositiveName}}</p>
+    <p>{{infoCompassGame.verticalAxisNegativeName}}-{{infoCompassGame.verticalAxisPositiveName}}</p>
+    </mat-card-content>
+</mat-card>
+</div>
+<div class="create-button">
+  <mat-button-toggle routerLink="/compass-game/add">Create new Compass Game</mat-button-toggle>
+</div>

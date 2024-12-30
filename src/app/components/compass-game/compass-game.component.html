@@ -1,0 +1,53 @@
+<div class="compass-game-container">
+  <h1>{{compassGame?.name}}</h1>
+  <div *ngIf="!gameOver" class="bars">
+    <p>{{ questions[currentQuestionIndex].text }}</p>
+    <div class="bars">
+      <p>{{currentQuestionIndex}}/{{questions.length}}</p>
+      <div class="bar-container">
+        <mat-progress-bar mode="determinate" [value]="(100/questions.length)*currentQuestionIndex" ></mat-progress-bar>
+      </div>
+    </div>
+    <div class="question-buttons">
+      <button (click)="answerQuestion(1)">Strongly Agree</button>
+      <button (click)="answerQuestion(0.5)">Agree</button>
+      <button (click)="answerQuestion(0)">Neutral</button>
+      <button (click)="answerQuestion(-0.5)">Disagree</button>
+      <button (click)="answerQuestion(-1)">Strongly Disagree</button>
+    </div>
+  </div>
+  <div *ngIf="gameOver">
+    <h3>Your Compass Position</h3>
+    <div class="compass-wrapper">
+      <div class="compass">
+        <div class="marker" [ngStyle]="{ left: xPosition + '%', top: yPosition + '%' }"></div>
+        <span class="label top">{{compassGame?.verticalAxisPositiveName}}</span>
+        <span class="label bottom">{{compassGame?.verticalAxisNegativeName}}</span>
+        <span class="label left">{{compassGame?.horizontalAxisNegativeName}}</span>
+        <span class="label right">{{compassGame?.horizontalAxisPositiveName}}</span>
+      </div>
+    </div>
+
+    <div class="bars">
+      <div class="bar-container">
+        <span class="text-container" style="color:#2B65EC;"> {{compassGame?.horizontalAxisNegativeName}}</span>
+        <mat-progress-bar mode="determinate" [value]="(100/totalX)*xScore+50"></mat-progress-bar>
+        <span class="text-container" style="color:dimgray ;">{{compassGame?.horizontalAxisPositiveName}}</span>
+      </div>
+
+      <div class="bar-container">
+        <span class="text-container" style="color:#2B65EC;">{{compassGame?.verticalAxisNegativeName}}</span>
+        <mat-progress-bar mode="determinate" [value]="(100/totalY) *yScore+50"></mat-progress-bar>
+        <span class="text-container" style="color:dimgray ;">{{compassGame?.verticalAxisPositiveName}}</span>
+      </div>
+    </div>
+
+    <div class="result-container">
+
+    <p>{{compassGame?.horizontalAxisPositiveName}}: {{ (xScore*10/totalX)}}/10</p>
+    <p>{{compassGame?.verticalAxisPositiveName}}: {{ (yScore*10/totalY) }}/10</p>
+    <p>{{compassGame?.horizontalAxisNegativeName}} {{ ((xScore*10/totalX)*-1)}}/10</p>
+    <p>{{compassGame?.verticalAxisNegativeName}}: {{ ((yScore*10/totalY)*-1)}}/10</p>
+    </div>
+  </div>
+</div>
