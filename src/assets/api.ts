@@ -1,3 +1,3 @@
 export const api = {
-  backendUrl: 'http://localhost:8080/api',
+  backendUrl: 'https://bayatmoghadam.at/api',
 };
