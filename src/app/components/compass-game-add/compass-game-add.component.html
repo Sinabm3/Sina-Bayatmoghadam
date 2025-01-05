@@ -1,0 +1,57 @@
+<form [formGroup]="compassGameForm" (ngSubmit)="submit()" class="form-container">
+  <h2>Create Compass Game</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Game Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Horizontal Axis Positive</mat-label>
+    <input matInput formControlName="horizontalAxisPositiveName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Horizontal Axis Negative</mat-label>
+    <input matInput formControlName="horizontalAxisNegativeName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Vertical Axis Positive</mat-label>
+    <input matInput formControlName="verticalAxisPositiveName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Vertical Axis Negative</mat-label>
+    <input matInput formControlName="verticalAxisNegativeName">
+  </mat-form-field>
+
+  <h3>Questions</h3>
+  <div formArrayName="questionDtos">
+    <div *ngFor="let question of questionDtos.controls; let i = index" [formGroupName]="i" class="question-group">
+      <p>
+        Type: {{ question.get('isHorizontal')?.value ? 'Horizontal' : 'Vertical' }}
+      </p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Question Text</mat-label>
+        <input matInput formControlName="text">
+      </mat-form-field>
+
+      <p>Axis Power</p>
+      <mat-radio-group formControlName="axisPower">
+        <mat-radio-button [value]="1">Positive</mat-radio-button>
+        <mat-radio-button [value]="-1">Negative</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="button-group">
+        <button *ngIf="i>1" mat-button color="warn" (click)="removeQuestion(i)">Remove</button>
+        <button mat-button color="primary" (click)="addQuestion(question.get('isHorizontal')?.value)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button mat-button color="primary" type="submit">Create Game</button>
+  </div>
+</form>
