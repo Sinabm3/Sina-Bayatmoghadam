@@ -29,7 +29,7 @@
   <h3>Questions</h3>
   <div formArrayName="questionDtos">
     <div class="add-button">
-    <button mat-flat-button color="primary" (click)="addQuestion(true)">Add Question</button>
+    <button mat-flat-button color="primary" type="button" (click)="addQuestion(true)">Add Question</button>
     </div>
     <div *ngFor="let question of questionDtos.controls; let i = index" [formGroupName]="i" class="question-group">
       <mat-form-field appearance="outline">
@@ -55,7 +55,7 @@
       <div class="button-group">
         <button
               [disabled]="!questionTypeCanBeDeleted(question.get('isHorizontal')?.value)"
-              mat-button color="warn" (click)="removeQuestion(i)">Remove</button>
+              mat-button color="warn" type="button" (click)="removeQuestion(i)">Remove</button>
       </div>
     </div>
   </div>
