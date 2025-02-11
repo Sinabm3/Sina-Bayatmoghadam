@@ -93,7 +93,6 @@ export class CompassGameAddComponent implements OnInit {
   }
 
   submit(): void {
-    if (this.compassGameForm.valid) {
       const formValue: CompassGameDto = this.compassGameForm.value;
       this.compassGameService.create(formValue).subscribe({
         next: () => {
@@ -104,10 +103,7 @@ export class CompassGameAddComponent implements OnInit {
           this.toastService.error('Error creating game:', err)
         }
       });
-    } else {
-      console.warn('Form is invalid');
     }
-  }
 
   questionTypeCanBeChanged(isHorizontal: boolean, willBeHorizontal:boolean): boolean {
     if (isHorizontal && !willBeHorizontal) {

@@ -61,6 +61,6 @@
   </div>
 
   <div>
-    <button mat-flat-button color="primary" type="submit">Create Game</button>
+    <button [disabled]="!this.compassGameForm.valid" mat-flat-button color="primary" type="submit">Create Game</button>
   </div>
 </form>
