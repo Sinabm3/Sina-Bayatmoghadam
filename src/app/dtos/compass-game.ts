@@ -23,5 +23,3 @@ export interface QuestionDto {
   isHorizontal: boolean;
   axisPower: number;
 }
-
-

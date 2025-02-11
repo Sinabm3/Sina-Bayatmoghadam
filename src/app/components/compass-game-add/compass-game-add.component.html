@@ -28,10 +28,18 @@
 
   <h3>Questions</h3>
   <div formArrayName="questionDtos">
+    <div class="add-button">
+    <button mat-flat-button color="primary" (click)="addQuestion(true)">Add Question</button>
+    </div>
     <div *ngFor="let question of questionDtos.controls; let i = index" [formGroupName]="i" class="question-group">
-      <p>
-        Type: {{ question.get('isHorizontal')?.value ? 'Horizontal' : 'Vertical' }}
-      </p>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName = "isHorizontal" (selectionChange)="changeLabel($event.value)">
+          <mat-option [disabled]="!questionTypeCanBeChanged(question.get('isHorizontal')?.value,true)"
+                      [value]="true">Horizontal</mat-option>
+          <mat-option [disabled]="!questionTypeCanBeChanged(question.get('isHorizontal')?.value,false)"
+                      [value]="false">Vertical</mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Question Text</mat-label>
@@ -45,13 +53,14 @@
       </mat-radio-group>
 
       <div class="button-group">
-        <button *ngIf="i>1" mat-button color="warn" (click)="removeQuestion(i)">Remove</button>
-        <button mat-button color="primary" (click)="addQuestion(question.get('isHorizontal')?.value)">Add</button>
+        <button
+              [disabled]="!questionTypeCanBeDeleted(question.get('isHorizontal')?.value)"
+              mat-button color="warn" (click)="removeQuestion(i)">Remove</button>
       </div>
     </div>
   </div>
 
   <div>
-    <button mat-button color="primary" type="submit">Create Game</button>
+    <button mat-flat-button color="primary" type="submit">Create Game</button>
   </div>
 </form>
