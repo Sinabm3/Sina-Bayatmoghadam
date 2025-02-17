@@ -20,7 +20,7 @@
     <h3>Your Compass Position</h3>
     <div class="compass-wrapper">
       <div class="compass">
-        <div class="marker" [ngStyle]="{ left: xPosition + '%', top: yPosition + '%' }"></div>
+        <div class="marker" [ngStyle]="{ left: xPosition + '%', top: 100-yPosition + '%' }"></div>
         <span class="label top">{{compassGame?.verticalAxisPositiveName}}</span>
         <span class="label bottom">{{compassGame?.verticalAxisNegativeName}}</span>
         <span class="label left">{{compassGame?.horizontalAxisNegativeName}}</span>
@@ -31,23 +31,23 @@
     <div class="bars">
       <div class="bar-container">
         <span class="text-container" style="color:#2B65EC;"> {{compassGame?.horizontalAxisNegativeName}}</span>
-        <mat-progress-bar mode="determinate" [value]="(100/totalX)*xScore+50"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" [value]="xPosition"></mat-progress-bar>
         <span class="text-container" style="color:dimgray ;">{{compassGame?.horizontalAxisPositiveName}}</span>
       </div>
 
       <div class="bar-container">
         <span class="text-container" style="color:#2B65EC;">{{compassGame?.verticalAxisNegativeName}}</span>
-        <mat-progress-bar mode="determinate" [value]="(100/totalY) *yScore+50"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" [value]="yPosition"></mat-progress-bar>
         <span class="text-container" style="color:dimgray ;">{{compassGame?.verticalAxisPositiveName}}</span>
       </div>
     </div>
 
     <div class="result-container">
 
-    <p>{{compassGame?.horizontalAxisPositiveName}}: {{ (xScore*10/totalX)}}/10</p>
-    <p>{{compassGame?.verticalAxisPositiveName}}: {{ (yScore*10/totalY) }}/10</p>
-    <p>{{compassGame?.horizontalAxisNegativeName}} {{ ((xScore*10/totalX)*-1)}}/10</p>
-    <p>{{compassGame?.verticalAxisNegativeName}}: {{ ((yScore*10/totalY)*-1)}}/10</p>
+    <p>{{compassGame?.horizontalAxisPositiveName}}: {{xPosition.toFixed(2) }}%</p>
+    <p>{{compassGame?.verticalAxisPositiveName}}: {{yPosition.toFixed(2)}}%</p>
+    <p>{{compassGame?.horizontalAxisNegativeName}} {{(100-xPosition).toFixed(2)}}%</p>
+    <p>{{compassGame?.verticalAxisNegativeName}}: {{(100-yPosition).toFixed(2)}}%</p>
     </div>
   </div>
 </div>

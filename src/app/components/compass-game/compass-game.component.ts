@@ -74,6 +74,6 @@ export class CompassGameComponent implements OnInit {
     this.totalX = this.questions.filter(q => q.isHorizontal).length;
     this.totalY = this.questions.filter(q => !q.isHorizontal).length;
     this.xPosition = (( this.xScore+this.totalX) * 100/(2*this.totalX));
-    this.yPosition = ((this.yScore*-1)+this.totalY)* 100/(2*this.totalY);
+    this.yPosition = ((this.yScore)+this.totalY)* 100/(2*this.totalY);
   }
 }
