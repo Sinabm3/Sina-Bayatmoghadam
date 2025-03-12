@@ -24,4 +24,8 @@ export class CompassGameService{
   create(compassGameDto: CompassGameDto): Observable<void> {
     return this.http.post<void>(baseUri, compassGameDto);
   }
+
+  delete(id: string, password: string): Observable<void> {
+    return this.http.delete<void>(`${baseUri}/${id}?password=${password}`)
+  }
 }

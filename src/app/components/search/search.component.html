@@ -1,10 +1,13 @@
 <div class="compass-cards">
-<mat-card class="compass-game-card" *ngFor="let infoCompassGame of infoCompassGames" routerLink="/compass-game/{{infoCompassGame.id}}">
-    <mat-card-header><p>{{infoCompassGame.name}}</p></mat-card-header>
-    <mat-card-content>
+<mat-card class="compass-game-card" *ngFor="let infoCompassGame of infoCompassGames" >
+    <mat-card-header routerLink="/compass-game/{{infoCompassGame.id}}"><p>{{infoCompassGame.name}}</p></mat-card-header>
+    <mat-card-content routerLink="/compass-game/{{infoCompassGame.id}}">
     <p>{{infoCompassGame.horizontalAxisNegativeName}}-{{infoCompassGame.horizontalAxisPositiveName}}</p>
     <p>{{infoCompassGame.verticalAxisNegativeName}}-{{infoCompassGame.verticalAxisPositiveName}}</p>
     </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="warn" type="button" (click)="openDeleteDialog(infoCompassGame.id)">Delete</button>
+  </mat-card-actions>
 </mat-card>
 </div>
 <div class="create-button">

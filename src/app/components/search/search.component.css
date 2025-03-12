@@ -21,6 +21,16 @@ mat-card-header {
   justify-content: center;
 }
 
+mat-card-content{
+  flex: 1;
+}
+
+mat-card-actions{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 .create-button{
   padding: 1rem;
 }
