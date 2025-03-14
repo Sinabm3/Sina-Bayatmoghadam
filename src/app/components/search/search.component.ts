@@ -47,6 +47,7 @@ export class SearchComponent implements OnInit{
     const dialogRef = this.dialog.open(PasswordDialogComponent, {
       width: '250px',
       data: {
+        id: id,
         title: 'Delete Item',
         message: 'Please enter the password to delete this Game:',
         confirmButtonText: 'Delete',
@@ -54,16 +55,11 @@ export class SearchComponent implements OnInit{
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.compassGameService.delete(id, result).subscribe({
-          next: () => {
-            // Remove the deleted item from the array
-            this.toastService.success("Game deleted successfully");
+    dialogRef.afterClosed().subscribe((deleted)=> {
+        if (deleted) {
             this.infoCompassGames = this.infoCompassGames.filter(game => game.id !== id);
-          }
-        });
-      }
-    });
+        }
+    }
+    );
   }
 }

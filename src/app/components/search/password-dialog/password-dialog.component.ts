@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {MatButton} from '@angular/material/button';
 import {MatInput} from '@angular/material/input';
 import {CompassGameService} from '../../../../service/compass-game.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-password-dialog',
@@ -34,6 +35,7 @@ export class PasswordDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<PasswordDialogComponent>,
     private readonly compassGameService: CompassGameService,
+    private toastService: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -41,11 +43,13 @@ export class PasswordDialogComponent {
     this.dialogRef.close();
   }
   onConfirmClick(): void {
-    this.compassGameService.delete(data.id, result).subscribe({
+    this.compassGameService.delete(this.data?.id, this.password).subscribe({
       next: () => {
-        // Remove the deleted item from the array
         this.toastService.success("Game deleted successfully");
-        this.infoCompassGames = this.infoCompassGames.filter(game => game.id !== id);
+        this.dialogRef.close(true);
+      },
+      error: () => {
+        this.toastService.error("Wrong password");
       }
     });
   }

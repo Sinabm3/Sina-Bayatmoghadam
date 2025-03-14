@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CompassGameService} from '../../../service/compass-game.service';
 import {CompassGameDto} from '../../dtos/compass-game';
-import {MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatFormField, MatLabel, MatPrefix} from '@angular/material/form-field';
 import {MatInput} from '@angular/material/input';
 import {MatButton} from '@angular/material/button';
 import {NgForOf, NgIf} from '@angular/common';
@@ -11,6 +11,7 @@ import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 import {MatOption, MatSelect} from '@angular/material/select';
+import {MatIcon} from '@angular/material/icon';
 
 
 @Component({
@@ -29,7 +30,9 @@ import {MatOption, MatSelect} from '@angular/material/select';
     MatRadioGroup,
     NgIf,
     MatSelect,
-    MatOption
+    MatOption,
+    MatIcon,
+    MatPrefix
   ],
   templateUrl: './compass-game-add.component.html',
   styleUrl: './compass-game-add.component.css'
@@ -54,6 +57,7 @@ export class CompassGameAddComponent implements OnInit {
   initializeForm(): void {
     this.compassGameForm = this.fb.group({
       name: ['', Validators.required],
+      password: ['', Validators.required],
       horizontalAxisPositiveName: ['', Validators.required],
       horizontalAxisNegativeName: ['', Validators.required],
       verticalAxisPositiveName: ['', Validators.required],
