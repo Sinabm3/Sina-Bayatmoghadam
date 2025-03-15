@@ -5,6 +5,7 @@ export interface CompassGameDto {
   horizontalAxisNegativeName: string;
   verticalAxisPositiveName: string;
   verticalAxisNegativeName: string;
+  password: string
   questionDtos: QuestionDto[];
 }
 

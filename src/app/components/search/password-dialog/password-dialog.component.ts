@@ -37,20 +37,33 @@ export class PasswordDialogComponent {
     private readonly compassGameService: CompassGameService,
     private toastService: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+
   onConfirmClick(): void {
-    this.compassGameService.delete(this.data?.id, this.password).subscribe({
-      next: () => {
-        this.toastService.success("Game deleted successfully");
-        this.dialogRef.close(true);
-      },
-      error: () => {
-        this.toastService.error("Wrong password");
-      }
-    });
+    if (this.data?.title === 'Delete Item') {
+      this.compassGameService.delete(this.data?.id, this.password).subscribe({
+        next: () => {
+          this.toastService.success("Game deleted successfully");
+          this.dialogRef.close(true);
+        },
+        error: () => {
+          this.toastService.error("Wrong password");
+        }
+      });
+    } else {
+      this.compassGameService.checkOneByIdAndPassword(this.data?.id, this.password).subscribe({
+        next: () => {
+          this.dialogRef.close(true);
+        },
+        error: () => {
+          this.toastService.error("Wrong password");
+        }
+      });
+    }
   }
 }

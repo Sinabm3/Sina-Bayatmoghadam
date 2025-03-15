@@ -10,6 +10,6 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideAnimationsAsync(), provideHttpClient(),importProvidersFrom(ToastrModule.forRoot({
       positionClass: 'toast-top-right'
-    }))]
+    })), provideAnimationsAsync()]
 };
 
